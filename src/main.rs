@@ -14,7 +14,11 @@ mod navigator;
 use navigator::*;
 
 fn main() {
-    let db_path = String::from("./data/db.json");
+
+    println!("Please enter your db path: ");
+    println!("");
+    let db_path = get_user_input();
+
     let db = JiraDatabase::new(db_path);
     let rc_db = Rc::new(db);
     let mut navigator = Navigator::new(Rc::clone(&rc_db));
